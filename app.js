@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing");
 const mongoURL = "mongodb://127.0.0.1:27017/wonderlust";
 const path = require("path");
-const methodOverride = require("method-override")
+const methodOverride = require("method-override");
 
 async function main(){
     await mongoose.connect(mongoURL);
@@ -49,10 +49,10 @@ app.get("/listings/:id/edit",async (req,res)=>{
 })
 
 //Update route
-app.put(" m /listings/:id",async(req,res)=>{
+app.put("/listings/:id",async(req,res)=>{
     let {id} = req.params;
-    await Listing.findByIdAndUpdate(id,{...req.body.Listing});
-    redirect("/listings");
+    await Listing.findByIdAndUpdate(id,{...req.body.listing});
+    res.redirect("/listings");
 })
 
 // app.get("/testListing",async (req,res)=>{
